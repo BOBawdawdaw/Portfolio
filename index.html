@@ -8,8 +8,21 @@
 
     <style>
         /* Add some basic styling */
-        .hidden {
-            display: none;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        header, main, footer {
+            width: 100%;
         }
 
         .container {
@@ -33,13 +46,36 @@
             font-weight: bold;
             text-decoration: underline;
         }
+
+        .hidden {
+            display: none;
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .profile-picture img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-top: auto; /* Push footer to the bottom */
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Welcome to Emmett's Portfolio</h1>
-            <p> An Unity Game Developer</p>
+            <p>An Unity Game Developer</p>
         </div>
     </header>
 
@@ -56,6 +92,11 @@
         <section id="about" class="page">
             <div class="container">
                 <h2>About Me</h2>
+                <div class="profile-picture">
+                    <!-- Add your picture here -->
+                    <img src="your-picture.jpg" alt="Your Picture">
+                    <p>Emmett</p>
+                </div>
                 <p>Hi! I'm a Unity game developer passionate about creating interactive and immersive gaming experiences. I specialize in 2D and 3D game development, scripting, and game design.</p>
             </div>
         </section>
@@ -64,8 +105,8 @@
             <div class="container">
                 <h2>Projects</h2>
                 <div class="project">
-                    <h3>Project 1: Find The Loaf| Name in Development</h3>
-                    <p>A 3D open world lethal company like coop game were you find and sell loot its fully open world and different loot spawn in different places</p>
+                    <h3>Project 1: Find The Loaf | Name in Development</h3>
+                    <p>A 3D open-world lethal company-like co-op game where you find and sell loot. It's fully open-world, and different loot spawns in different places.</p>
                 </div>
             </div>
         </section>
