@@ -5,33 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Game Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Add some basic styling */
+        .hidden {
+            display: none;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: blue;
+            cursor: pointer;
+        }
+
+        nav ul li a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Unity Game Developer</p>
+            <h1>Welcome to Emmett's Portfolio</h1>
+            <p> An Unity Game Developer</p>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" class="nav-link active" onclick="showPage('about')">About Me</a></li>
+            <li><a href="#projects" class="nav-link" onclick="showPage('projects')">Projects</a></li>
+            <li><a href="#skills" class="nav-link" onclick="showPage('skills')">Skills</a></li>
+            <li><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="about">
+        <section id="about" class="page">
             <div class="container">
                 <h2>About Me</h2>
                 <p>Hi! I'm a Unity game developer passionate about creating interactive and immersive gaming experiences. I specialize in 2D and 3D game development, scripting, and game design.</p>
             </div>
         </section>
 
-        <section id="projects">
+        <section id="projects" class="page hidden">
             <div class="container">
                 <h2>Projects</h2>
                 <div class="project">
@@ -45,7 +74,7 @@
             </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="page hidden">
             <div class="container">
                 <h2>Skills</h2>
                 <ul>
@@ -58,7 +87,7 @@
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="page hidden">
             <div class="container">
                 <h2>Contact</h2>
                 <p>Email: your.email@example.com</p>
@@ -73,5 +102,28 @@
             <p>&copy; 2025 Your Name. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all sections
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(pageId).classList.remove('hidden');
+
+            // Add active class to the current nav link
+            const activeLink = document.querySelector(`a[href="#${pageId}"]`);
+            activeLink.classList.add('active');
+        }
+    </script>
 </body>
 </html>
