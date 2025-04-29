@@ -5,12 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Game Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background: #333;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: #4e54c8;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .profile-picture img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .profile-picture p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f4f4f4;
+            margin: 0.5rem 0;
+            padding: 0.7rem;
+            border-radius: 5px;
+        }
+
+        .project {
+            background: #f9f9f9;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #8f94fb;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Welcome to Emmett's Portfolio</h1>
-            <p>An Unity Game Developer</p>
+            <p>A Unity Game Developer</p>
         </div>
     </header>
 
@@ -24,11 +171,11 @@
     </nav>
 
     <main>
+        <!-- About Me Section -->
         <section id="about" class="page">
             <div class="container">
                 <h2>About Me</h2>
                 <div class="profile-picture">
-                    <!-- Add your picture here -->
                     <img src="images/adawd (1).png" alt="Your Picture">
                     <p>Emmett</p>
                 </div>
@@ -36,6 +183,7 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="page hidden">
             <div class="container">
                 <h2>Projects</h2>
@@ -43,9 +191,11 @@
                     <h3>Project 1: Find The Loaf | Name in Development</h3>
                     <p>A 3D open-world lethal company-like co-op game where you find and sell loot. It's fully open-world, and different loot spawns in different places.</p>
                 </div>
+                <!-- Add more projects as needed -->
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills" class="page hidden">
             <div class="container">
                 <h2>Skills</h2>
@@ -59,12 +209,13 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="page hidden">
             <div class="container">
                 <h2>Contact</h2>
-                <p>Email: emmettcanier175@gmail.com</p>
+                <p>Email: <a href="mailto:emmettcanier175@gmail.com">emmettcanier175@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-                <p>GitHub: <a href="https://github.com/quickvr" target="_blank">github.com/yourgithubprofile</a></p>
+                <p>GitHub: <a href="https://github.com/quickvr" target="_blank">github.com/quickvr</a></p>
             </div>
         </section>
     </main>
@@ -72,6 +223,10 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Emmett. All rights reserved.</p>
+            <p>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/quickvr" target="_blank">GitHub</a>
+            </p>
         </div>
     </footer>
 
