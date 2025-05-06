@@ -142,6 +142,65 @@
             display: none;
         }
 
+        .comment-section {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .comment-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .comments-display {
+            margin-bottom: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+            background: #fff;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .comment {
+            padding: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        #comment-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #comment-input {
+            resize: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #comment-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+        }
+
+        #comment-form button:hover {
+            background-color: #0056b3;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -167,6 +226,7 @@
             <li><a href="#projects" class="nav-link" onclick="showPage('projects')">Projects</a></li>
             <li><a href="#skills" class="nav-link" onclick="showPage('skills')">Skills</a></li>
             <li><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+            <li><a href="#comments" class="nav-link" onclick="showPage('comments')">Comments</a></li>
         </ul>
     </nav>
 
@@ -191,7 +251,6 @@
                     <h3>Project 1: Find The Loaf | Name in Development</h3>
                     <p>A 3D open-world lethal company-like co-op game where you find and sell loot. It's fully open-world, and different loot spawns in different places.</p>
                 </div>
-                <!-- Add more projects as needed -->
             </div>
         </section>
 
@@ -216,6 +275,20 @@
                 <p>Email: <a href="mailto:emmettcanier175@gmail.com">emmettcanier175@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
                 <p>GitHub: <a href="https://github.com/quickvr" target="_blank">github.com/quickvr</a></p>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section id="comments" class="page hidden">
+            <div class="container comment-section">
+                <h2>Comments</h2>
+                <div id="comments-display" class="comments-display">
+                    <!-- Comments will be displayed here -->
+                </div>
+                <form id="comment-form">
+                    <textarea id="comment-input" placeholder="Write a comment..." required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
             </div>
         </section>
     </main>
@@ -251,6 +324,52 @@
             const activeLink = document.querySelector(`a[href="#${pageId}"]`);
             activeLink.classList.add('active');
         }
+
+        // Comments functionality
+        const commentsDisplay = document.getElementById('comments-display');
+        const commentForm = document.getElementById('comment-form');
+        const commentInput = document.getElementById('comment-input');
+
+        // Load comments from localStorage
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            commentsDisplay.innerHTML = ''; // Clear existing comments
+            comments.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'comment';
+                commentElement.textContent = comment;
+                commentsDisplay.appendChild(commentElement);
+            });
+        }
+
+        // Save a comment to localStorage
+        function saveComment(comment) {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Handle form submission
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent form submission
+
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                saveComment(commentText);
+
+                // Add the new comment to the display
+                const commentElement = document.createElement('div');
+                commentElement.className = 'comment';
+                commentElement.textContent = commentText;
+                commentsDisplay.appendChild(commentElement);
+
+                // Clear the comment input
+                commentInput.value = '';
+            }
+        });
+
+        // Load comments on page load
+        loadComments();
     </script>
 </body>
 </html>
